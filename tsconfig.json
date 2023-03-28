@@ -1,0 +1,79 @@
+{
+    "ts-node": {
+      "transpileOnly": true,
+      "require": [
+        "typescript-transform-paths/register"
+      ]
+    },
+    "compilerOptions": {
+      "types": [
+        "node",
+        "vitest/globals"
+      ],
+      "plugins": [
+        {
+          "transform": "typescript-transform-paths"
+        },
+        // Transform paths in output .d.ts files (Include this line if you output declarations files)
+        {
+          "transform": "typescript-transform-paths",
+          "afterDeclarations": true
+        }
+      ],
+      "target": "ES2017",
+      "module": "CommonJS",
+      "lib": [
+        "dom",
+        "es6",
+        "es2017",
+        "esnext.asynciterable"
+      ],
+      "skipLibCheck": true,
+      "sourceMap": false,
+      "outDir": "./dist",
+      "moduleResolution": "Node",
+      "forceConsistentCasingInFileNames": true,
+      "removeComments": true,
+      "isolatedModules": true,
+      "noImplicitAny": true,
+      "strictNullChecks": true,
+      "strictFunctionTypes": true,
+      "noImplicitThis": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": false,
+      "noImplicitReturns": true,
+      "noFallthroughCasesInSwitch": true,
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "resolveJsonModule": true,
+      "declaration": true,
+      "declarationDir": "./dist/types",
+      "baseUrl": ".",
+      "paths": {
+        "@/*": [
+          "src/*"
+        ]
+      }
+    },
+    "exclude": [
+      "node_modules",
+      "dist",
+      "**/*.spec.ts",
+      "**/*.test.ts",
+      "**/*.spec.tsx",
+      "**/*.test.tsx",
+      "**/*.spec.js",
+      "**/*.test.js",
+      "**/*.spec.jsx",
+      "**/*.test.jsx",
+      "**/__tests__/**/*",
+      "**/__mocks__/**/*",
+      "**/test/**/*",
+    ],
+    "include": [
+      "./src/**/*.ts",
+      "./../node.config.ts"
+    ]
+  }
